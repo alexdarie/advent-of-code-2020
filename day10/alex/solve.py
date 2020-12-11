@@ -53,6 +53,8 @@ def build_all_paths(graph):
 	return total
 
 # Third attemp to second part:
+from collections import defaultdict
+
 def count_ahead(jolts):
 	# paths[n] is the total paths from 0 to n
 	# defaultdict - provides the default value for a nonexistent key
