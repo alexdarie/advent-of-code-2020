@@ -38,12 +38,6 @@ def build_graph(jolts):
 			j += 1
 	return graph
 
-def done(l, t):
-	for a in l:
-		if not a == t:
-			return False
-	return True
-
 def solve(graph):
 	stack = [0]
 	total = 0
