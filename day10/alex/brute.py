@@ -17,6 +17,8 @@
 # First part:
 # print(combine_adapters(read('input.txt')))
 
+# Second attemp to second part: (see third one, this one is 
+# taking days to output something, not even kidding).
 def read(filename):
 	jolts = [0]
 	f = open(filename, 'r')
@@ -38,10 +40,11 @@ def build_graph(jolts):
 			j += 1
 	return graph
 
-def solve(graph):
+def build_all_paths(graph):
 	stack = [0]
 	total = 0
 	while stack:
+		# TAKES TOO LONG
 		top = stack.pop()
 		if top == len(graph) - 1:
 			total += 1
@@ -49,5 +52,19 @@ def solve(graph):
 			stack.append(node)
 	return total
 
-# Second part:
-print(solve(build_graph(read('input.txt'))))
+# Third attemp to second part:
+def count_ahead(jolts):
+	# paths[n] is the total paths from 0 to n
+	# defaultdict - provides the default value for a nonexistent key
+	paths = defaultdict(int)
+	paths[0] = 1
+
+	for j in sorted(jolts):
+	    for diff in range(1, 4):
+	        nxt = j + diff
+	        if nxt in jolts:
+	            paths[nxt] += paths[j]
+	    print(paths)
+	return paths[max(jolts)]
+
+print(count_ahead(read('input.txt')))
