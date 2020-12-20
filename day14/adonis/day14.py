@@ -134,7 +134,8 @@ def task2(commands):
         
     return values_left_in_memory
 
-    
+ 
+#print(task1(read_data("input_day14.txt")))
 print(task2(read_data("input_day14.txt")))
 
 
