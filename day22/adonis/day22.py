@@ -109,9 +109,6 @@ def sub_game(player1_deck, player2_deck):
             else:
                 player2_deck.append(player2_card)
                 player2_deck.append(player1_card)
-        
-        #print(player1_deck)
-        #print(player2_deck)
     
     if not check_if_this_round_existed(previous_rounds, player1_deck, player2_deck):
         if len(player2_deck) > 0:
